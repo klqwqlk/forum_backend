@@ -1,6 +1,7 @@
 package io.kelin.forum.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.kelin.forum.entity.Concernedpeople;
 import io.kelin.forum.entity.Dynamic;
 import com.baomidou.mybatisplus.extension.service.IService;
 import io.kelin.forum.mapper.DynamicMapper;
@@ -21,4 +22,6 @@ public interface DynamicService extends IService<Dynamic> {
 
 
     public List<Dynamic> getAllDynamics();
+
+    public List<Dynamic> getConcernDynamics(List<Integer> concerns);
 }

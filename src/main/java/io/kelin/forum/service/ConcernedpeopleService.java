@@ -2,6 +2,9 @@ package io.kelin.forum.service;
 
 import io.kelin.forum.entity.Concernedpeople;
 import com.baomidou.mybatisplus.extension.service.IService;
+import io.kelin.forum.entity.User;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-12-04
  */
 public interface ConcernedpeopleService extends IService<Concernedpeople> {
+
+    public List<Integer> getConcerndPeopleIds(User user);
 
 }

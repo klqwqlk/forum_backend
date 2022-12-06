@@ -1,6 +1,7 @@
 package io.kelin.forum.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.kelin.forum.entity.Concernedpeople;
 import io.kelin.forum.entity.Dynamic;
 import io.kelin.forum.mapper.DynamicMapper;
 import io.kelin.forum.service.DynamicService;
@@ -28,5 +29,13 @@ public class DynamicServiceImpl extends ServiceImpl<DynamicMapper, Dynamic> impl
     public List<Dynamic> getAllDynamics() {
         List<Dynamic> dynamics = dynamicMapper.selectList(new QueryWrapper<>());
         return dynamics;
+    }
+
+    @Override
+    public List<Dynamic> getConcernDynamics(List<Integer> concerndPeopleIds) {
+        QueryWrapper<Dynamic> dynamicQueryWrapper = new QueryWrapper<>();
+        dynamicQueryWrapper.in("userId",concerndPeopleIds);
+        List<Dynamic> concernedDynamics = dynamicMapper.selectList(dynamicQueryWrapper);
+        return concernedDynamics;
     }
 }
