@@ -33,11 +33,15 @@ public class Dynamicstar implements Serializable {
     @TableField("userId")
     private String userId;
 
-    @TableField("ArticleId")
-    private String ArticleId;
+    @TableField("dynamicId")
+    private String dynamicId;
 
     @TableField("starTime")
     private Date starTime;
+
+    @TableField("editTime")
+    private Date editTime;
+
 
     @TableField("isDeleted")
     private Integer isDeleted;

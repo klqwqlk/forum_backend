@@ -2,4 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.kelin.forum.mapper.DynamicMapper">
 
+    <update id="updateStarCount" >
+        update dynamic set starCount = starCount + #{count} where dynamicId = #{dynamicId}
+    </update>
+
+    <update id="updateStorageCount" >
+        update dynamic set storageCount = storageCount + #{count} where dynamicId = #{dynamicId}
+    </update>
 </mapper>

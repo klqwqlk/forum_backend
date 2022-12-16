@@ -1,6 +1,7 @@
 package io.kelin.forum.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.kelin.forum.entity.Concernedpeople;
 import io.kelin.forum.entity.Dynamic;
 import io.kelin.forum.mapper.DynamicMapper;
@@ -26,9 +27,17 @@ public class DynamicServiceImpl extends ServiceImpl<DynamicMapper, Dynamic> impl
     DynamicMapper dynamicMapper ;
 
     @Override
-    public List<Dynamic> getAllDynamics() {
-        List<Dynamic> dynamics = dynamicMapper.selectList(new QueryWrapper<>());
-        return dynamics;
+    public Page<Dynamic> getAllDynamics(Integer page, Integer pageSize) {
+
+        Page<Dynamic> p = new Page<>();
+        p.setSize(pageSize);
+        p.setCurrent(page);
+
+        Page<Dynamic> dynamicPage = dynamicMapper.selectPage(p, null);
+
+
+//        List<Dynamic> dynamics = dynamicMapper.selectList(new QueryWrapper<>());
+        return dynamicPage;
     }
 
     @Override
@@ -37,5 +46,16 @@ public class DynamicServiceImpl extends ServiceImpl<DynamicMapper, Dynamic> impl
         dynamicQueryWrapper.in("userId",concerndPeopleIds);
         List<Dynamic> concernedDynamics = dynamicMapper.selectList(dynamicQueryWrapper);
         return concernedDynamics;
+    }
+
+    @Override
+    public int updateStarCount(Integer dynamicId, int count) {
+
+       return dynamicMapper.updateStarCount(dynamicId, count);
+    }
+
+    @Override
+    public int updateStorageCount(Integer dynamicId, int count) {
+        return dynamicMapper.updateStorageCount(dynamicId, count);
     }
 }

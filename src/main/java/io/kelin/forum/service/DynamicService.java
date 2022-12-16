@@ -1,6 +1,7 @@
 package io.kelin.forum.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.kelin.forum.entity.Concernedpeople;
 import io.kelin.forum.entity.Dynamic;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -21,7 +22,11 @@ import java.util.List;
 public interface DynamicService extends IService<Dynamic> {
 
 
-    public List<Dynamic> getAllDynamics();
+    public Page<Dynamic> getAllDynamics(Integer page, Integer pageSize);
 
     public List<Dynamic> getConcernDynamics(List<Integer> concerns);
+
+    int updateStarCount(Integer dynamicId,int count);
+
+    int updateStorageCount(Integer dynamicId,int count);
 }

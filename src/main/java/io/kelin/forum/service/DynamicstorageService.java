@@ -12,5 +12,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-12-04
  */
 public interface DynamicstorageService extends IService<Dynamicstorage> {
+    boolean getDynamicStorageByUser(String userId,String dynamicId);
 
+    Integer getDynamicStorageCountById(String dynamicId);
+
+    boolean storageDynamic(String userId ,String dynamicId, Boolean starFlag);
 }

@@ -13,4 +13,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface DynamicstarService extends IService<Dynamicstar> {
 
+    boolean getDynamicStarByUser(String userId,String dynamicId);
+
+    Integer getDynamicStarCountById(String dynamicId);
+
+    boolean starDynamic(String userId ,String dynamicId, Boolean starFlag);
 }

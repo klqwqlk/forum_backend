@@ -31,13 +31,16 @@ public class Dynamicstorage implements Serializable {
     private Integer id;
 
     @TableField("dynamicId")
-    private Integer dynamicId;
+    private String dynamicId;
 
     @TableField("userId")
     private String userId;
 
     @TableField("storageTime")
     private Date storageTime;
+
+    @TableField("editTime")
+    private Date editTime;
 
     @TableField("isDeleted")
     private Integer isDeleted;

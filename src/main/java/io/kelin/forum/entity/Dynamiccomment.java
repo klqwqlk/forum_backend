@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.Date;
 //import io.swagger.annotations.ApiModel;
 //import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -30,18 +31,25 @@ public class Dynamiccomment implements Serializable {
     private Integer commentId;
 
     @TableField("dynamicId")
-    private Integer dynamicId;
+    private String dynamicId;
 
     @TableField("userId")
     private String userId;
+
+    @TableField("toUserId")
+    private String toUserId;
 
     private String content;
 
     @TableField("parentCommentId")
     private Integer parentCommentId;
 
+
     @TableField("starCount")
     private Integer starCount;
+
+    @TableField("commentTime")
+    private Date commentTime;
 
     @TableField("isDelete")
     private Integer isDelete;
